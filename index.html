@@ -15,7 +15,8 @@
         //   children: ['Hello ', 'world']
         // });
         const content = 'helloWorld';
-        const element = <div className="container">{content}</div>;
+        const myClassName = 'container';
+        const element = <div className={myClassName}>{(() => content)()}</div>;
 
         console.log(element);
         ReactDOM.render(element, rootElement)
