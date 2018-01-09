@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>BegginerReact</title>
-
     <script src="https://unpkg.com/react@16.0.0-rc.3/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16.0.0-rc.3/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <link type="text/css" rel="stylesheet" href="./style.css"/>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
+        const props = {
+          className: "box box--small",
+          style: {paddingLeft: 20}
+        }
         function tick() {
           const time = new Date().toLocaleTimeString()
           // function Message({message}) {
@@ -21,15 +25,14 @@
           //     </div>
           //   )
           // }
-          const element = `
-            <div> It is
-              <input type="text" value="${time}" />
-              <input type="text" value="${time}" />
-            </div>
-          `
 
-          rootElement.innerHTML = element
-          // ReactDOM.render(element, rootElement)
+          const element = (
+            <div {...props}> It is
+              <input  value={time} />
+            </div>
+          )
+
+          ReactDOM.render(element, rootElement)
         }
         tick()
         setInterval(tick, 1000)
