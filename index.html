@@ -9,11 +9,13 @@
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        const Message = props =>  <div>{props.msg}</div>
+        const Message = props =>  <div>{props.children}</div>
         const element = (
           <div className="container">
-              <Message msg="Hello World"/>
-              <Message msg="Goodbye World"/>
+            <Message children="Hello World"> ByeBye World
+
+              <Message children="Goodbye World"/>
+            </Message>
           </div>
         )
 
