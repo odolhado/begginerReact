@@ -21,11 +21,15 @@
           //     </div>
           //   )
           // }
-          const element = (
-            <div> It is {time} </div>
-          )
+          const element = `
+            <div> It is
+              <input type="text" value="${time}" />
+              <input type="text" value="${time}" />
+            </div>
+          `
 
-          ReactDOM.render(element, rootElement)
+          rootElement.innerHTML = element
+          // ReactDOM.render(element, rootElement)
         }
         tick()
         setInterval(tick, 1000)
