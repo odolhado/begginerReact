@@ -10,13 +10,12 @@
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root')
-        // const element = React.createElement('div', {
-        //   className: 'container',
-        //   children: ['Hello ', 'world']
-        // });
-        const content = 'helloWorld';
-        const myClassName = 'container';
-        const element = <div className={myClassName}>{(() => content)()}</div>;
+        const props = {
+          className: 'container',
+          children: 'helloWorld'
+        };
+
+        const element = <div {...props} />;
 
         console.log(element);
         ReactDOM.render(element, rootElement)
