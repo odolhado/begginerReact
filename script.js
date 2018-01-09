@@ -14,7 +14,8 @@ function App() {
       <p>You typed: {state.username}</p>
       <p>
         <input
-          onChange={event =>
+          // onChange
+          onBlur ={event =>
             setState({username: event.target.value})
           }
         />
