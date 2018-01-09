@@ -9,16 +9,11 @@
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        // const props = {
-        //   className: 'container',
-        //   children: 'helloWorld'
-        // };
-        // const element = <div {...props} className="my-class" > Hi there </div>;
         const message = (props) =>  <div>{props.message}</div>
         const element = (
           <div className="container">
-            {message({message:'Hello World'})}
-            {message({message:'GoodBye World'})}
+            {React.createElement(message, {message: 'Hello World'})}
+            {message({message: 'GoodBye World'})}
           </div>
         )
 
