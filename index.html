@@ -10,30 +10,27 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
-        const props = {
+        const myprops = {
           className: "box box--small",
           style: {paddingLeft: 20}
         }
-        function tick() {
-          const time = new Date().toLocaleTimeString()
-          // function Message({message}) {
-          //   return (<div>
-          //       {message
-          //         ? (<div> {message} </div>)
-          //         : (<div> No Message </div>)
-          //       }
-          //     </div>
-          //   )
-          // }
-
-          const element = (
-            <div {...props}> It is
-              <input  value={time} />
+        function Box(props) {
+          return (
+            <div {...myprops}> It is
+              <input value={props.time} />
             </div>
           )
-
-          ReactDOM.render(element, rootElement)
         }
+
+        function tick() {
+          const time = new Date().toLocaleTimeString();
+          const element = (
+            <Box  time={time}/>
+          )
+
+          ReactDOM.render(element, rootElement);
+        }
+
         tick()
         setInterval(tick, 1000)
     </script>
