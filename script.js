@@ -8,10 +8,16 @@ function App() {
       </p>
       <p>
         <button onClick={increment}>⚛️</button>
+        <button onMouseOver={increment}>⚛mouseover️</button>
+        <button onFocus={increment}>⚛focus</button>
       </p>
       <p>You typed: {state.username}</p>
       <p>
-        <input/>
+        <input
+          onChange={event =>
+            setState({username: event.target.value})
+          }
+        />
       </p>
     </div>
   )
