@@ -9,14 +9,20 @@
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        const props = {
-          className: 'container',
-          children: 'helloWorld'
-        };
+        // const props = {
+        //   className: 'container',
+        //   children: 'helloWorld'
+        // };
+        // const element = <div {...props} className="my-class" > Hi there </div>;
+        const helloWorld = (title) =>  <div>{title}</div>
+        const element = (
+          <div className="container">
+            {helloWorld('Hello World')}
+            {helloWorld('GoodBye World')}
+          </div>
+        )
 
-        const element = <div {...props} className="my-class" />;
-
-        console.log(element);
+        // console.log(element);
         ReactDOM.render(element, rootElement)
     </script>
 </head>
