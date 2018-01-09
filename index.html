@@ -10,22 +10,18 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
-        const myprops = {
-          className: "box box--small",
-          style: {paddingLeft: 20}
-        }
         function Box(props) {
           return (
-            <div {...myprops}> It is
-              <input value={props.time} />
-            </div>
+            <div className="box box--small"
+                 style="{{paddingLeft: 20}}"
+                 {...props}
+            />
           )
         }
 
         function tick() {
-          const time = new Date().toLocaleTimeString();
           const element = (
-            <Box  time={time}/>
+            <Box style={{backgroundColor: 'lightblue'}}> small box </Box>
           )
 
           ReactDOM.render(element, rootElement);
