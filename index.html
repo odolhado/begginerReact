@@ -12,14 +12,8 @@
         const rootElement = document.getElementById('root');
 
         function Message({message}) {
-          if (!message) {
-            return <div>No Message</div>
-          }
-          return (
-            <div>
-              Hello {message}!
-            </div>
-          );
+          return message ? React.createElement('div', null, message)
+            : React.createElement('div', null, 'No Message')
         }
 
         const element = (
@@ -28,7 +22,6 @@
           </div>
         )
 
-        // console.log(element);
         ReactDOM.render(element, rootElement)
     </script>
 </head>
