@@ -10,11 +10,11 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
-        function Box(props) {
+        function Box({style, ...rest}) {
           return (
             <div className="box box--small"
-                 style="{{paddingLeft: 20}}"
-                 {...props}
+                 style={{paddingLeft: 20, ...style}}
+                 {...rest}
             />
           )
         }
