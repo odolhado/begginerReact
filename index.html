@@ -11,25 +11,20 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
-        class SayHello extends React.Component {
-          static propTypes = {
-            firstName: PropTypes.string.isRequired,
-            lastName: PropTypes.string.isRequired
+        function Message({message}) {
+          if (!message) {
+            return <div>No Message</div>
           }
-
-          render() {
-            const {firstName, lastName} = this.props;
-            return (
-              <div>
-                Hello {firstName} {lastName}!
-              </div>
-            )
-          }
+          return (
+            <div>
+              Hello {message}!
+            </div>
+          );
         }
 
         const element = (
           <div className="container">
-            <SayHello firstName="Odo" lastName="Lhado"/>
+            <Message message={null} />
           </div>
         )
 
