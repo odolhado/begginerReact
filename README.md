@@ -9,3 +9,6 @@
  #### Additioal dev tool helping with wrong PropTypes
     `npm install --save-dev babel-plugin-transform-react-remove-prop-types
 
+ #### CSS react-libraries: 
+ 
+    `styled components, emotion, glamorous`

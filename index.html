@@ -10,9 +10,10 @@
     <script type="text/babel">
         const rootElement = document.getElementById('root');
 
-        function Box({style, ...rest}) {
+        function Box({style, size, className='', ...rest}) {
+          const sizeClassName = size ? `box--${size}` : ''
           return (
-            <div className="box box--small"
+            <div className={`box ${className} ${sizeClassName}`}
                  style={{paddingLeft: 20, ...style}}
                  {...rest}
             />
@@ -21,7 +22,11 @@
 
         function tick() {
           const element = (
-            <Box style={{backgroundColor: 'lightblue'}}> small box </Box>
+            <div>
+              <Box size="small"  style={{backgroundColor: 'lightblue'}}> small box </Box>
+              <Box size="medium" style={{backgroundColor: 'pink'}}> medium box </Box>
+              <Box size="large" className="high" style={{backgroundColor: 'orange'}}> large box </Box>
+            </div>
           )
 
           ReactDOM.render(element, rootElement);
