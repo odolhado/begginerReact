@@ -12,13 +12,18 @@
         const rootElement = document.getElementById('root');
 
         function Message({message}) {
-          return message ? React.createElement('div', null, message)
-            : React.createElement('div', null, 'No Message')
+          return (<div>
+              {message
+                ? (<div> {message} </div>)
+                : (<div> No Message </div>)
+              }
+            </div>
+          )
         }
 
         const element = (
           <div className="container">
-            <Message message={null} />
+            <Message message={'hi'} />
           </div>
         )
 
