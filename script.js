@@ -1,4 +1,4 @@
-const state = {eventCount: 0, username: ''};
+const state = {eventCount: 0, username: '', displayWatch: true};
 
 function App() {
   return (
@@ -14,27 +14,30 @@ function App() {
       <p>You typed: {state.username}</p>
       <p>
         <input
-          onChange = {updateUsername}
+          onChange={updateUsername}
         />
       </p>
-      <StopWatch />
+      <input
+        type="checkbox"
+        checked={state.displayWatch}
+        onChange={toggleWatch}
+      />
+      {state.displayWatch ? <StopWatch/> : ''}
     </div>
   )
 }
 
-class StopWatch extends React.Component{
-  state = {lapse: 10, running: false};
+class StopWatch extends React.Component {
+  state = {lapse: 0, running: false};
   handleRunClick = () => {
     this.setState(state => {
-      if(state.running) {
-        console.log('handleRunClick clearInterval')
-
+      if (state.running) {
         clearInterval(this.timer)
       } else {
-        console.log('handleRunClick setInterval')
-
         const startTime = Date.now() - this.state.lapse;
         this.timer = setInterval(() => {
+          console.log('timer setInterval')
+
           this.setState({
             lapse: Date.now() - startTime
           })
@@ -48,6 +51,12 @@ class StopWatch extends React.Component{
     clearInterval(this.timer)
     this.setState({lapse: 0, running: false})
   };
+
+  componentWillUnmount() {
+    console.log('Unmounting watch component. Reseting timer-interval');
+    clearInterval(this.timer)
+  }
+
   render() {
     const {lapse, running} = this.state;
     const buttonStyles = {
@@ -75,6 +84,10 @@ function increment() {
   setState({eventCount: state.eventCount + 1})
 }
 
+function toggleWatch() {
+  setState({displayWatch: !state.displayWatch})
+}
+
 function setState(newState) {
   console.log('setState?', state, newState);
   Object.assign(state, newState);
@@ -91,5 +104,4 @@ function renderApp() {
 
 
 renderApp();
-// setState({username: 'Odo', eventCount: 10});
 
