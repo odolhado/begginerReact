@@ -14,11 +14,11 @@
         //   children: 'helloWorld'
         // };
         // const element = <div {...props} className="my-class" > Hi there </div>;
-        const helloWorld = (props) =>  <div>{props.message}</div>
+        const message = (props) =>  <div>{props.message}</div>
         const element = (
           <div className="container">
-            {helloWorld({message:'Hello World'})}
-            {helloWorld({message:'GoodBye World'})}
+            {message({message:'Hello World'})}
+            {message({message:'GoodBye World'})}
           </div>
         )
 
